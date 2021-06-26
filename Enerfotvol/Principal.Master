@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="Enerfotvol.Principal" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>EnerFotVol</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+    <!-- Custom styles for this template -->
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" type="text/css" media="all" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/js/datetimepicker.js"></script>
+</head>
+<body>
+    <header class="p-3 mb-3 border-bottom">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/Compras.aspx">Comprar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/Presupuestos.aspx">Solicitar Presupuesto</a>
+            </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="menAprobar" runat="server" NavigateUrl="#" CssClass="nav-link disabled" Text="Autorizaciones"  data-bs-toggle="dropdown" aria-disabled="false"></asp:HyperLink>
+            </li>
+            <li class="nav-item dropdown">                
+                <asp:HyperLink ID="menAlmacenes" runat="server" NavigateUrl="#" CssClass="nav-link dropdown-toggle" Text="Almacenes"  data-bs-toggle="dropdown" aria-expanded="false"></asp:HyperLink>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                  <li><asp:HyperLink ID="menProductos" runat="server" NavigateUrl="/Pages/Productos.aspx" CssClass="dropdown-item" Text="Gestión de Productos"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="menTipoProducto" runat="server" NavigateUrl="/Pages/TipoProducto.aspx" CssClass="dropdown-item" Text="Tipos de Productos"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menStock" runat="server" NavigateUrl="/Pages/Stock.aspx" CssClass="dropdown-item" Text="Gestión de Stock"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menMercaderia" runat="server" NavigateUrl="/Pages/Mercaderia.aspx" CssClass="dropdown-item" Text="Ingreso de Mercadería"></asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <asp:HyperLink ID="menVentas" runat="server" NavigateUrl="#" CssClass="nav-link dropdown-toggle" Text="Ventas"  data-bs-toggle="dropdown" aria-expanded="false"></asp:HyperLink>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                  <li><asp:HyperLink ID="menClientes" runat="server" NavigateUrl="/Pages/Clientes.aspx" CssClass="dropdown-item" Text="Gestión de Clientes"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menVender" runat="server" NavigateUrl="#" CssClass="dropdown-item" Text="Vender"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menOrdenInstalacion" runat="server" NavigateUrl="#" CssClass="dropdown-item" Text="Ordenes de Instalación"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menDevolAnul" runat="server" NavigateUrl="#" CssClass="dropdown-item" Text="Devoluciones y Anulaciones"></asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <asp:HyperLink ID="menCompras" runat="server" NavigateUrl="#" CssClass="nav-link dropdown-toggle" Text="Compras"  data-bs-toggle="dropdown" aria-expanded="false"></asp:HyperLink>                
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                  <li><asp:HyperLink ID="menProveedor" runat="server" NavigateUrl="#" CssClass="dropdown-item" Text="Gestión de Proveedores"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menOrdenCompra" runat="server" NavigateUrl="#" CssClass="dropdown-item" Text="Generar Orden de Compra"></asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <asp:HyperLink ID="menSistema" runat="server" NavigateUrl="#" CssClass="nav-link dropdown-toggle" Text="Sistema"  data-bs-toggle="dropdown" aria-expanded="false"></asp:HyperLink>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                    <li><asp:HyperLink ID="menUsuario" runat="server" NavigateUrl="/pages/Usuario.aspx" CssClass="dropdown-item" Text="Gestión de Usuarios"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menPerfiles" runat="server" NavigateUrl="/pages/Perfiles.aspx" CssClass="dropdown-item" Text="Gestión de Perfiles"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menBitacora" runat="server" NavigateUrl="/pages/Bitacora.aspx" CssClass="dropdown-item" Text="Bitácora de auditoría"></asp:HyperLink></li>
+                  <li><asp:HyperLink ID="menIdiomas" runat="server" NavigateUrl="/pages/Idiomas.aspx" CssClass="dropdown-item" Text="Gestión de Idiomas"></asp:HyperLink></li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+        <div class="flex-shrink-0 dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <asp:Label ID="Label1" runat="server" Text="" CssClass="dropdown-header"></asp:Label>
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="/Pages/CambioClave.aspx">Cambiar Contraseña</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/Logout.aspx">Sign out</a></li>
+            </ul>
+            </div>
+    </nav>
+   </header>
+    <main class="container">
+      <div class="bg-light p-5 rounded">
+        <form id="form1" runat="server">
+            <div>
+            
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            
+            </div>
+        </form>
+      </div>
+    </main>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <div id="footer">
+                <span>contacto@enerfotvol.com</span>                
+                <span>www.enerfotvol.com</span>
+    </div>
+</body>
+</html>
